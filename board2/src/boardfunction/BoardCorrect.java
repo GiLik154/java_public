@@ -9,7 +9,7 @@ public class BoardCorrect {
     int selectBoard = 0;
     String selectMenu = "";
     int num = 0;
-    boolean cheak = false;
+    boolean check = false;
 
     public void selectBoard() {
         try {
@@ -34,22 +34,22 @@ public class BoardCorrect {
         }
     }
 
-    public void correnctBoard(List<BoardInfo> list) {
+    public void correctBoard(List<BoardInfo> list) {
         selectBoard();
 
         num = 0; // num 초기화
-        cheak = false; // cheak 초기화
+        check = false; // check 초기화
         for (BoardInfo i : list) {
             num += 1; // 위치 찾기
             if (selectBoard == i.num - 1) {
-                cheak = true;
+                check = true;
                 break;
             }
         }
 
         try {
             while (true) {
-                if (cheak) {
+                if (check) {
                     selectMenu();
                     BoardInfo boardInfo = list.get(num - 1);
                     String str;
