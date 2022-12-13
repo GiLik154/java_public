@@ -5,7 +5,6 @@
     <fullyQualifiedTypeName name="catcafe.EspressoMenu"/>
     <fullyQualifiedTypeName name="catcafe.Basket"/>
     <fullyQualifiedTypeName name="java.io.InputStreamReader"/>
-    <fullyQualifiedTypeName name="java.io.BufferedReader"/>
     <fullyQualifiedTypeName name="java.lang.System"/>
     <fullyQualifiedTypeName name="boardfunction.BoardDelete"/>
     <fullyQualifiedTypeName name="boardfunction.BoardList"/>
@@ -18,5 +17,13 @@
     <fullyQualifiedTypeName name="javax.security.auth.login.AccountLockedException"/>
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="java.io.File"/>
+    <fullyQualifiedTypeName name="java.io.FileWriter"/>
+    <fullyQualifiedTypeName name="textoutput.TextOut"/>
+    <fullyQualifiedTypeName name="java.io.IOException"/>
+    <fullyQualifiedTypeName name="java.io.BufferedReader"/>
+    <fullyQualifiedTypeName name="java.io.FileReader"/>
+    <fullyQualifiedTypeName name="textoutput.TextInput"/>
     <fullyQualifiedTypeName name="java.lang.Integer"/>
+    <fullyQualifiedTypeName name="boardfunction.BoardCorrect"/>
 </qualifiedTypeNameHistroy>

@@ -1,8 +1,0 @@
-package textoutput;
-
-public class TextOut {
-	void outputText() {
-		
-	}
-
-}

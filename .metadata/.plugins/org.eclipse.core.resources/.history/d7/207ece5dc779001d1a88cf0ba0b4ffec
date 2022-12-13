@@ -1,7 +1,0 @@
-package boardfunction;
-
-public class BoardDelete {
-	void delete() {
-	}
-
-}

@@ -1,7 +1,0 @@
-package boardfunction;
-
-public class BoardRead {
-	public void read() {
-	}
-
-}

@@ -1,7 +1,0 @@
-package textoutput;
-
-public class TextInput {
-	void createFile() {
-		
-	}
-}

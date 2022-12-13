@@ -7,8 +7,9 @@
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
-			<item value="package cargame;"/>
 			<item value="package boardfunction;"/>
+			<item value="package textoutput;"/>
+			<item value="package cargame;"/>
 		</list>
 		<list key="replacehistory">
 		</list>
