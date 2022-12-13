@@ -1,0 +1,13 @@
+package java_q;
+
+public class abc {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		bcd aaa = new bcd();
+		bcd abcdeeee = aaa.xxx();
+		ccc cccc = new ccc();
+		cccc.vvv(aaa);
+	}
+
+}

@@ -1,0 +1,13 @@
+package baejoon;
+
+import java.util.Scanner;
+
+public class b_14681 {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int A = sc.nextInt();
+		int x = 12;
+		int y = 5;
+
+	}
+}

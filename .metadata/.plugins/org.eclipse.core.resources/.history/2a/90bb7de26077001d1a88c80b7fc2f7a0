@@ -1,0 +1,7 @@
+package java_q;
+
+public class ccc {
+	void vvv(bcd bcd){
+		System.out.println(bcd.aaa);
+	}
+}

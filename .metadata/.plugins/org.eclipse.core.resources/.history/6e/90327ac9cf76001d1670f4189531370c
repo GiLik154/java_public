@@ -1,0 +1,9 @@
+package java_q;
+
+public class eee {
+	String a = "";
+	eee(String a, int b){
+		String a = a
+		int b;
+	}
+}

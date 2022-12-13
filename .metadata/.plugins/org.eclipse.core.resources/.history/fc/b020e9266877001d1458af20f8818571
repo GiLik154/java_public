@@ -1,0 +1,22 @@
+package baejoon;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class Main222 {
+	
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		List<Integer> number = new ArrayList<Integer>();
+		List<Integer> chess = new ArrayList<Integer>();
+		chess.add = (Integer) 1;
+		System.out.println("입력좀");
+		int k = 5;
+		for (int i = 1; i <= k; i++) {
+			number.add(sc.nextInt());
+		}
+		System.out.println(number);
+	}
+
+}

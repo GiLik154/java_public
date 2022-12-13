@@ -1,0 +1,11 @@
+package cargame;
+
+public class Score {
+    void carScore{
+        for (int j = 0; j < moveCount; j++) { // 반복 횟수 만큰 반복
+            if (random.nextInt(RANDOM_RANGE) >= CONDITION_RANGE) {
+                carScore[i] = carScore[i] + 1; // 랜덤으로 돌려서 차량 카운트 + 1
+            }
+        }
+    }
+}

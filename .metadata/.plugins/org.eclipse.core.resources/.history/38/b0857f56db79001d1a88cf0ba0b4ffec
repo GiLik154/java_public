@@ -1,0 +1,23 @@
+package boardfunction;
+
+import java.time.LocalDate;
+
+public class BoardInfo {
+	LocalDate now = LocalDate.now();
+	
+	int num;
+	String title;
+	String content;
+	String writer;
+	int hits;
+	String date = now.toString();
+	
+	void recive(BoardWrite write) {
+		this.num = num;
+		this.title = title;
+		this.content = content;
+		this.writer = writer;
+		this.hits = hits;
+	}
+	
+}

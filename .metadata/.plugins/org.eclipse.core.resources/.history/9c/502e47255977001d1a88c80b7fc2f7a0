@@ -1,0 +1,27 @@
+package java_q;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Main {
+
+	public static void main(String[] args) {
+		List<Father> abc = new ArrayList<>();
+		String aaa;
+		bcd(String aaa){
+			
+			
+			this.aaa = aaa;
+		}
+		bcd(){
+			abc.add(new Son ("cde", 1, "ddd"));
+		}
+		
+		void xxx () {
+			Son vvv = (Son) abc;
+			if (abc instanceof Son){
+			System.out.println(vvv.c + "변환완료");
+			}
+		}
+	}
+}

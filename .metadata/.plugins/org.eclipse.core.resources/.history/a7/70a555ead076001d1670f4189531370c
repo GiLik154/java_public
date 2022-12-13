@@ -1,0 +1,25 @@
+package java_q;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class bcd {
+	List<eee> abc = new ArrayList<>();
+	String aaa;
+	bcd(String aaa){
+		
+		
+		this.aaa = aaa;
+	}
+	bcd(){
+		
+		abc.add(new ddd ("cde", 1, "ddd"));
+	
+	}
+	
+	void xxx () {
+		if (abc instanceof ddd);
+		ddd vvv = (ddd)abc;
+		System.out.println(vvv.c);
+	}
+}

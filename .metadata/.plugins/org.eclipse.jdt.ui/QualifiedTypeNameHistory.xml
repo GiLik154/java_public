@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="game.Item"/>
+    <fullyQualifiedTypeName name="catcafe.GoodsInfo"/>
+    <fullyQualifiedTypeName name="catcafe.EspressoMenu"/>
+    <fullyQualifiedTypeName name="catcafe.Basket"/>
+    <fullyQualifiedTypeName name="java.io.InputStreamReader"/>
+    <fullyQualifiedTypeName name="java.io.BufferedReader"/>
+    <fullyQualifiedTypeName name="java.lang.System"/>
+    <fullyQualifiedTypeName name="boardfunction.BoardDelete"/>
+    <fullyQualifiedTypeName name="boardfunction.BoardList"/>
+    <fullyQualifiedTypeName name="boardfunction.BoardRead"/>
+    <fullyQualifiedTypeName name="java.lang.StrictMath"/>
+    <fullyQualifiedTypeName name="java.lang.String"/>
+    <fullyQualifiedTypeName name="boardfunction.BoardWrite"/>
+    <fullyQualifiedTypeName name="java.io.OutputStreamWriter"/>
+    <fullyQualifiedTypeName name="java.io.BufferedWriter"/>
+    <fullyQualifiedTypeName name="javax.security.auth.login.AccountLockedException"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="java.lang.Integer"/>
+</qualifiedTypeNameHistroy>

@@ -1,0 +1,8 @@
+package java_q;
+
+public class product {
+	product(String name, int price, int each, String info){
+		
+	}
+	
+}

@@ -1,0 +1,14 @@
+package java_q;
+
+public class eee {
+	
+	String a = "";
+	int b;
+	String bdb;
+	
+	eee(String a, int b, String bdb){
+		this.a = a;
+		this.b = b;
+		this.d = d;
+	}
+}

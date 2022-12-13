@@ -1,0 +1,22 @@
+import java.util.Scanner;
+
+public class Main {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int k = sc.nextInt();
+		int q = sc.nextInt();
+		int l = sc.nextInt();
+		int b = sc.nextInt();
+		int kn = sc.nextInt();
+		int p = sc.nextInt();
+
+		System.out.print(1-k);
+		System.out.print(1-k);
+		System.out.print(1-k);
+		System.out.print(1-k);
+		System.out.print(1-k);
+		System.out.print(1-k);
+		System.out.print(1-k);
+	}
+
+}

@@ -1,0 +1,15 @@
+package cargame;
+
+public class Car { // 자동차 배열 생성
+    Score score = new Score();
+
+    public int[] matchCar(int carCount, int moveCount) {
+        int[] carScore = new int[carCount]; // 차 배열 크기 설정
+
+        for (int i = 0; i < carCount; i++) { // 차 대수 만큼 반
+            System.out.println("회 반복");
+
+        }
+        return carScore;
+    }
+}

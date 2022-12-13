@@ -1,0 +1,39 @@
+package catcafe;
+
+public class Main {
+
+    public static void main(String[] args) {
+        ScannerInput scanner = new ScannerInput();
+//        Order order = new Order();
+
+//        loop_a: while (true) {
+            System.out.println("============================================");
+            System.out.println("================= 고양이카페       ============");
+            System.out.println("============================================");
+            System.out.print("명령: 1 : 에스프레소 || 2 : 디저트 || X : 종료");
+            scanner.cmd = scanner.input.next();
+
+            switch (scanner.cmd) {
+            case "1": // 에스프레소 메뉴
+//                order.drinkOrder();
+                EspressoMenu es = new EspressoMenu();
+                break;
+
+//            case "2": // 디저트 메뉴
+//                order.cakeOrder();
+//                break;
+//
+//            case "x": // 종료
+//                System.out.println("프로그램 종료");
+//                order.checkBasket();
+//                scanner.close();
+//                break loop_a;
+//
+//            default: // 다른 값 입력 시 다시 입력
+//                System.out.println("입력을 확인해주세요.");
+//                break;
+            }
+//        }
+
+    }
+}

@@ -1,0 +1,9 @@
+Class Main{
+    void ab(){
+        Scanner sc = new scanner(System.in);
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+        System.out.Print(a+b);
+    }
+    
+}

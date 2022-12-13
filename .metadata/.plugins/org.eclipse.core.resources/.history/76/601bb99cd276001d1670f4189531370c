@@ -1,0 +1,24 @@
+package java_q;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class bcd {
+	ArrayList<eee> abc = new ArrayList<eee>();
+	String aaa;
+	bcd(String aaa){
+		
+		
+		this.aaa = aaa;
+	}
+	bcd(){
+		abc.add(new ddd ("cde", 1, "ddd"));
+	}
+	
+	void xxx () {
+		ddd vvv = (ddd)abc;
+		if (abc instanceof ddd){
+		System.out.println(vvv.c + "변환완료");
+		}
+	}
+}

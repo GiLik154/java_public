@@ -1,0 +1,17 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class Main {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		List number = new ArrayList();
+		int k = sc.nextInt();
+		for(int i=1; i<=k; i++) {
+			number.add(sc.nextInt());
+		}
+		String c = (String) number;
+		System.out.println(number);
+	}
+
+}

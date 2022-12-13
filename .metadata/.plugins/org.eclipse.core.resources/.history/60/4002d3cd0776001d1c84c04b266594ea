@@ -1,0 +1,12 @@
+
+
+public class HelloWorld {
+	public static void main(String[] args) {
+		        Scanner sc = new scanner(System.in);
+		        int a = sc.nextInt();
+		        int b = sc.nextInt();
+		        System.out.Print(a+b);
+		    }
+		    
+		}
+}

@@ -1,0 +1,14 @@
+package baejoon;
+
+public class b_2588 {
+	public static void main(String[] args) {
+		int A = 472;
+		int B = 385;
+		
+		whil(B>0){
+			
+		}
+		
+		System.out.println();
+	}
+}

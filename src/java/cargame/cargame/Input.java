@@ -1,0 +1,24 @@
+package cargame;
+
+import java.util.Scanner;
+
+class Input {
+	int carCount;
+	int moveCount;
+
+	void scan() { // 정보입력
+		Scanner input = new Scanner(System.in);
+
+		System.out.println("자동차 대수는 몇 대 인가요?");
+		carCount = input.nextInt();
+		System.out.println(carCount + "대");
+
+		System.out.println("시도할 횟수는 몇 회 인가요?");
+		moveCount = input.nextInt();
+		System.out.println(moveCount + "번");
+		input.close();
+		HashMap<String, Integer> map = new HashMap<>();
+		map.put("carCount", carCount);
+		map.put("moveCount", moveCount);
+	}
+}

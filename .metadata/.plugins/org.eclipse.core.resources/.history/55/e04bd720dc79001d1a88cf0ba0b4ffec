@@ -1,0 +1,47 @@
+package board;
+
+import java.io.*;
+import boardfunction.*;
+
+public class Menu {
+	BoardInfo boardInfo = new BoardInfo();
+	BoardList boardList = new BoardList();
+	BoardRead boardRead = new BoardRead();
+	BoardWrite boardWrite = new BoardWrite();
+	BoardDelete boardDelete = new BoardDelete();
+
+	boolean loop = true;
+
+	void printMen() throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+		bw.write("🐈‍[1.글 리스트/2.글읽기/3.글쓰기/4.글삭제/e.종료]🐈");
+		bw.flush();
+
+		while (loop) {
+			switch (input) {
+			String input = br.readLine();
+			case "1":
+				boardList.output(boardInfo);
+				break;
+			case "2":
+				boardRead.read();
+				break;
+			case "3":
+				boardInfo.recive(boardWrite.write());
+				break;
+			case "4":
+				boardDelete.delete();
+				break;
+			case "e":
+				loop = false;
+				break;
+			default:
+				bw.write("다시 입력하세요");
+				bw.flush();
+				break;
+			}
+		}
+
+	}
+}

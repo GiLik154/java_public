@@ -1,0 +1,31 @@
+package baejoon;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Scanner;
+
+public class b_2480 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc = new Scanner(System.in);
+		
+		List<Integer> dice = new ArrayList<>();
+		dice.add(sc.nextInt());
+		int max = Collections.max(dice);
+		int result = 0;
+		
+		for(int s:dice) {
+			System.out.println(s);
+//			if(dice.get(0) == dice.get(s)) {
+//				result++;
+//				System.out.println(result);
+//			}
+			
+		}
+		
+		
+	}
+
+}

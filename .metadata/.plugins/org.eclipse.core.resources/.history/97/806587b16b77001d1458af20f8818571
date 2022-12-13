@@ -1,0 +1,19 @@
+package baejoon;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class b_2588 {
+	public static void main(String[] args) {
+		int A = 472;
+		int B = 385;
+		
+		List<> num = new ArrayList<>();
+		
+		while(B>0){
+			
+		}
+		
+		System.out.println();
+	}
+}

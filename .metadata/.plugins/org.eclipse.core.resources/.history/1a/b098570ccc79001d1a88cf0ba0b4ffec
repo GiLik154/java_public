@@ -1,0 +1,28 @@
+package boardfunction;
+
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+
+public class BoardInfo {
+	LocalDate now = LocalDate.now();
+	List<BoardInfo> list = new ArrayList<>();
+	
+	int num;
+	String title;
+	String content;
+	String writer;
+	int hits;
+	String date = now.toString();
+	
+	void recive(int num, String title, String content, String writer, int hits) {
+		this.num = num;
+		this.title = title;
+		this.content = content;
+		this.writer = writer;
+		this.hits = hits;
+		add.list(recive());
+	}
+	
+	
+}

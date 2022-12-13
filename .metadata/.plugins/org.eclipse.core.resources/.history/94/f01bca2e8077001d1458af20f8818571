@@ -1,0 +1,17 @@
+package baejoon;
+
+import java.util.Scanner;
+
+public class b_2884 {
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc = new Scanner(System.in);
+		int hour = sc.nextInt();
+		int min = sc.nextInt();
+		int resultMin = min - 45;
+
+		if (min < 45) {
+
+		}
+	}
+}

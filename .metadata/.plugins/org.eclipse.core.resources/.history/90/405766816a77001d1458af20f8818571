@@ -1,0 +1,19 @@
+package baejoon;
+
+import java.util.Scanner;
+
+public class b10430 {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int A = 5;
+		int B = 8;
+		int C = 4;
+		System.out.println((A + B) % C);
+		System.out.println(((A % C) + (B % C)) % C);
+		System.out.println((A * B) % C);
+		System.out.println(((A % C) * (B % C)) % C);
+
+	}
+
+}

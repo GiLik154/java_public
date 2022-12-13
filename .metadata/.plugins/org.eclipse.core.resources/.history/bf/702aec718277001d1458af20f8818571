@@ -1,0 +1,27 @@
+package baejoon;
+
+import java.util.Scanner;
+
+public class b_2525 {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int hour = sc.nextInt();
+		int min = sc.nextInt();
+		int cookMin = sc.nextInt();
+		int resultHour = hour;
+		int resultMin = min + cookMin;
+
+		while (resultMin >= 60) {
+			if (resultMin > 59) {
+				resultHour = hour + 1;
+				resultMin = resultMin - 60;
+			}
+
+			if (resultHour > 23) {
+				resultHour = resultHour - 24;
+			}
+
+		}
+		System.out.println(resultHour + " " + resultMin);
+	}
+}

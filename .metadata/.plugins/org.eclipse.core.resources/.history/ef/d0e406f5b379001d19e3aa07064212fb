@@ -1,0 +1,48 @@
+package catcafe;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class GoodsInfo {
+    
+
+    String name = "";
+    int price = 0;
+    int each = 0;
+    String info = "";
+    List<GoodsInfo> gI = new ArrayList<>();
+
+
+
+    public void inputGood(String name, int price, int each, String info) { // 주문하는 메뉴 갯수와 정보를 받아와서 저장
+        this.name = name;
+        this.price = price;
+        this.each = each;
+        this.info = info;
+    }
+
+    public GoodsInfo(String name, int price) { // 정보 저장
+        this.name = name;
+        this.price = price;
+    }
+    
+    public GoodsInfo(String name, int price, int each, String info) { // 정보 저장
+        this.name = name;
+        this.price = price;
+        this.each = each;
+        this.info = info;
+    }
+    
+    public list GoodsInfo() { // 정보 저장
+        gI.add(new GoodsInfo("에스프레소", 1000));
+        gI.add(new GoodsInfo("아메리카노", 1000));
+        gI.add(new GoodsInfo("라떼", 1000));
+        gI.add(new GoodsInfo("치즈케이크", 1000));
+        gI.add(new GoodsInfo("초콜릿케이크", 1000));
+        gI.add(new GoodsInfo("생크림케이크", 1000));
+    return gi;    
+    }
+
+    void espresso() {
+    }
+}

@@ -1,0 +1,9 @@
+package java_q;
+
+public class Product {
+	List<pr>
+	product(String name, int price, int each, String info){
+		
+	}
+	
+}

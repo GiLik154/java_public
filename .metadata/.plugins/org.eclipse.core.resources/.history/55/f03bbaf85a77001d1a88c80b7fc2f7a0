@@ -1,0 +1,21 @@
+package java_q;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Main {
+
+	public static void main(String[] args) {
+		List<Father> list = new ArrayList<>();
+		list.add(new Son("1번 스트링", 2, "3번 스트링"));
+
+		Father father = (Father) list;
+		Son son = (Son) son;
+
+		if (list instanceof Son) {
+			System.out.println(abc.c + "변환완료");
+		}
+		System.out.println("형변환 실패");
+	}
+}
+

@@ -1,0 +1,5 @@
+package java_q;
+
+public class eee {
+	String a = "";
+}

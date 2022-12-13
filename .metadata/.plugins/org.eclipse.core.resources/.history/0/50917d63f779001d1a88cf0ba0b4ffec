@@ -1,0 +1,17 @@
+package cargame;
+
+import java.util.Random;
+
+public class Score {
+    final static int RANDOM_RANGE = 10;
+    final static int CONDITION_RANGE = 4;
+    Random random = new Random();
+
+    void carScore(int carCount, int[] carScore) {
+        for (int j = 0; j < moveCount; j++) { // 반복 횟수 만큰 반복
+            if (random.nextInt(RANDOM_RANGE) >= CONDITION_RANGE) {
+                carScore[i] = carScore[i] + 1; // 랜덤으로 돌려서 차량 카운트 + 1
+            }
+        }
+    }
+}

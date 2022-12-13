@@ -1,0 +1,26 @@
+package cargame;
+
+import java.util.Random;
+
+public class Car { // 자동차 배열 생성
+    final static int RANDOM_RANGE = 10;
+    final static int CONDITION_RANGE = 4;
+    int carCount = 0;
+    int moveCount = 0;
+
+    public int[] matchCar(int carCount, int moveCount) {
+        Random random = new Random();
+        this.carCount = carCount;
+        this.moveCount = moveCount;
+        int[] carScore = new int[carCount]; // 차 배열 크기 설정
+
+        for (int i = 0; i < carCount; i++) { // 차 대수 만큼 반
+            for (int j = 0; j < moveCount; j++) { // 반복 횟수 만큰 반복
+                if (random.nextInt(RANDOM_RANGE) >= CONDITION_RANGE) {
+                    carScore[i] = carScore[i] + 1; // 랜덤으로 돌려서 차량 카운트 + 1
+                }
+            }
+        }
+        return carScore;
+    }
+}

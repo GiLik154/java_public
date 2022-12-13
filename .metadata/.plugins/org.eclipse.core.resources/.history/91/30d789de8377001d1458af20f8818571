@@ -1,0 +1,21 @@
+package baejoon;
+
+import java.util.Scanner;
+
+public class b_2480 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc = new Scanner(System.in);
+		
+		int[] arr = new int[0];
+		int a = sc.nextInt();
+		int b = sc.nextInt();
+		int c = sc.nextInt();
+		int result = 0;
+		
+		if
+		
+	}
+
+}

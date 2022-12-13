@@ -1,0 +1,11 @@
+package java_q;
+
+import java.util.ArrayList;
+
+public class Product {
+	List<Product> product = new ArrayList<>();
+	product(String name, int price, int each, String info){
+		
+	}
+	
+}

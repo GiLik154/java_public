@@ -1,0 +1,11 @@
+package java_q;
+
+public class ddd extends eee{
+	String c;
+	
+	ddd(String a, int b, String c) {
+		super(a, b);
+		this c = c;
+	}
+	
+}
