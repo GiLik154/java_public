@@ -12,7 +12,7 @@ public class BoardInfo {
     public String writer;
     public String date = now.toString();
 
-    public void recive(BoardWrite write) {
+    public void receive(BoardWrite write) {
         this.num = write.num; // 리스트에서 add 처리
         this.title = write.title;
         this.content = write.content;
