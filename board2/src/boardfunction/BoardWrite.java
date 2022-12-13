@@ -11,7 +11,7 @@ public class BoardWrite {
 	String writer;
 	int num = 0;
 
-	public void reciveNum(int num) { // 텍스트에서 불러온 이후 번호 이어받음.
+	public void receiveNum(int num) { // 텍스트에서 불러온 이후 번호 이어받음.
 		this.num = num;
 	}
 
