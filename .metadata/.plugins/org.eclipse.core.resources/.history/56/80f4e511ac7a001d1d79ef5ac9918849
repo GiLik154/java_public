@@ -1,0 +1,50 @@
+package boardfunction;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.util.List;
+
+public class BoardDelete {
+	BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	int selectNum = 0;
+
+	public void select() {
+		try {
+			selectNum = 0;
+			bw.write("몇 번 글을 삭제하시나요?");
+			bw.flush();
+			selectNum = Integer.parseInt(br.readLine()) - 1;
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public void delete(List<BoardInfo> list) {
+		try {
+			for (BoardInfo i : list) {
+				BoardInfo boardInfo = (BoardInfo) i;
+				System.out.println(selectNum +"이거랑" + boardInfo.num);
+				if (selectNum == boardInfo.num) {
+					list.remove(selectNum);
+					bw.write(+selectNum + 1 + "번호가 삭제되었습니다." + "\n");
+					bw.write(
+							"================================================================================================="
+									+ "\n");
+
+					bw.flush();
+				}
+			}
+		} catch (Exception e) {
+			try {
+				bw.write("없는 게시물입니다" + "\n");
+				bw.flush();
+			} catch (IOException e1) {
+				e1.printStackTrace();
+			}
+		}
+	}
+}

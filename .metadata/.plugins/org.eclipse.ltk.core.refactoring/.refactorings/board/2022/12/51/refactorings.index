@@ -5,3 +5,5 @@
 1670812237476	Rename type 'boardDelete'
 1670812240972	Rename type 'boardRead'
 1670812245061	Rename type 'boardWrite'
+1670913577160	Rename method 'delete'
+1670916426743	Rename field 'selectNum'

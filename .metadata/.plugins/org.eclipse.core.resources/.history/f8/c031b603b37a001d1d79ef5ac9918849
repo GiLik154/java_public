@@ -1,0 +1,49 @@
+package boardfunction;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.util.List;
+
+public class BoardRead {
+	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+	int selectNum = 0;
+	int Num = 0;
+
+	public void select() throws IOException {
+		bw.write("몇 번 글을 읽으시나요?");
+		bw.flush();
+		selectNum = Integer.parseInt(br.readLine());
+	}
+
+	public void read(List<BoardInfo> list) throws IOException {
+		try {
+			for (BoardInfo i : list) {
+				BoardInfo boardInfo = (BoardInfo) i;
+				if (selectNum == boardInfo.num ) {
+					System.out.println(selectNum + "이거랑" + boardInfo.num);
+					Num = boardInfo.num - 1;
+					break;
+				}
+			}
+
+			BoardInfo boardInfo = (BoardInfo) list.get(Num);
+			boardInfo.hits++;
+			bw.write("글 번호 : " + boardInfo.num);
+			bw.write(" || 글 제목 : " + boardInfo.title);
+			bw.write(" || 글 작성자 : " + boardInfo.writer + "\n");
+			bw.write("글 내용 : " + boardInfo.content + "\n");
+			bw.write("글 조회 : " + boardInfo.hits);
+			bw.write(" || 글 작성일 : " + boardInfo.date + "\n");
+			bw.write("================================================================================================="
+					+ "\n");
+			bw.flush();
+		} catch (Exception e) {
+			bw.write("없는 게시물입니다" + "\n");
+			bw.flush();
+		}
+	}
+}

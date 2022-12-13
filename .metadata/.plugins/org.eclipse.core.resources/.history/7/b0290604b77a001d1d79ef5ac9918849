@@ -1,0 +1,77 @@
+package board;
+
+import java.io.*;
+import java.util.*;
+import boardfunction.*;
+import textoutput.TextInput;
+import textoutput.TextOut;
+
+public class Menu {
+	BoardList boardList = new BoardList();
+	BoardRead boardRead = new BoardRead();
+	BoardWrite boardWrite = new BoardWrite();
+	BoardDelete boardDelete = new BoardDelete();
+	TextOut textOut = new TextOut();
+	TextInput textInput = new TextInput();
+	List<BoardInfo> list = new ArrayList<>();
+
+	boolean loop = true;
+	String input;
+
+	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+
+	void printMen() {
+		textInput.createFile();
+		textInput.inputText(list);
+		boardWrite.reciveNum(list.size());
+		try {
+			while (loop) {
+				BoardInfo boardInfo = new BoardInfo();
+				bw.write("🐈‍[1.글 리스트/2.글읽기/3.글쓰기/4.글삭제/e.종료]🐈");
+				bw.flush();
+				input = br.readLine();
+
+				switch (input) {
+				case "1": // 글 리스트
+					boardList.output(list);
+					break;
+
+				case "2": // 글 읽기
+					boardRead.select();
+					boardRead.read(list);
+					break;
+
+				case "3": // 글쓰기
+					boardWrite.write();
+					boardInfo.recive(boardWrite);
+					list.add(boardInfo);
+					break;
+
+				case "4": // 글사게
+					boardDelete.select();
+					boardDelete.compareNum(list);
+					break;
+					
+				case "5": // 글사게
+					boardDelete.select();
+					boardDelete.compareNum(list);
+					break;
+
+				case "e": // 종료
+					textOut.outputText(list);
+					loop = false;
+					break;
+
+				default: //틀린 것 입력시 다시 입력
+					bw.write("다시 입력하세요");
+					bw.flush();
+					break;
+				}
+			}
+		} catch (IOException e) { // 예외처리
+			e.printStackTrace();
+		}
+
+	}
+}

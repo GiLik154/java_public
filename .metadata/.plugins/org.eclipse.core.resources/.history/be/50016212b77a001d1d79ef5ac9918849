@@ -1,0 +1,16 @@
+package boardfunction;
+
+import java.io.IOException;
+
+public class BoardCorrect {
+	public void select() {
+		try {
+			selectNum = 0;
+			bw.write("몇 번 글을 삭제하시나요?" + "\n" + "\n");
+			bw.flush();
+			selectNum = Integer.parseInt(br.readLine()) - 1;
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+}

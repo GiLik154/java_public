@@ -1,0 +1,12 @@
+package textoutput;
+
+import java.io.BufferedWriter;
+import java.io.OutputStreamWriter;
+
+public class TextOut {
+	void outputText() {
+		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(file));
+
+	}
+
+}
