@@ -24,17 +24,17 @@ public class BoardDelete {
         select();
 
         num = 0; // num 초기화
-        boolean cheak = false; // cheak 초기화
+        boolean check = false; // check 초기화
         for (BoardInfo i : list) {
             num += 1; // 위치 찾기
             if (selectBoard == i.num - 1) {
-                cheak = true;
+                check = true;
                 break;
             }
         }
 
         try {
-            if (cheak) {
+            if (check) {
                 list.remove(num - 1); // 0부터 시작하기 때문에 -1
                 bw.write(selectBoard + 1 + "번호가 삭제되었습니다." + "\n" + "\n");
                 bw.write("===================================================================================" + "\n");
