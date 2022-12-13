@@ -27,8 +27,7 @@ public class BoardRead {
 		cheak = false;
 		for (BoardInfo i : list) {
 			num += 1; // 위치 찾기
-			BoardInfo boardInfo = (BoardInfo) i; // 리스트의 형변환
-			if (selectBoard == boardInfo.num - 1) { // 글 번호 비교
+			if (selectBoard == i.num - 1) { // 글 번호 비교
 				cheak = true; // 글 번호가 같으면 트루 출력
 				break;
 			}
@@ -36,7 +35,7 @@ public class BoardRead {
 
 		try {
 			if (cheak) { // 트루일 경우 아래의 입력 출력
-				BoardInfo boardInfo = (BoardInfo) list.get(num - 1); // 0부터 시작하기 때문에 -1
+				BoardInfo boardInfo = list.get(num - 1); // 0부터 시작하기 때문에 -1
 				boardInfo.hits++; // 조회수 + 1;
 				bw.write("글 번호 : " + boardInfo.num);
 				bw.write(" || 글 제목 : " + boardInfo.title);
