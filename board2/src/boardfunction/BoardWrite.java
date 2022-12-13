@@ -26,7 +26,7 @@ public class BoardWrite {
 		}
 	}
 
-	String writeTitle() { // 제목 입력
+	void writeTitle() { // 제목 입력
 		try {
 			bw.write("제목을 입력하세요");
 			bw.flush();
@@ -36,10 +36,9 @@ public class BoardWrite {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return title;
 	}
 
-	String writeContent() { // 내용 입력
+	void writeContent() { // 내용 입력
 		try {
 			bw.write("내용을 입력하세요");
 			bw.flush();
@@ -49,10 +48,9 @@ public class BoardWrite {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return content;
 	}
 
-	String writeWriter() { // 작성자 입력.
+	void writeWriter() { // 작성자 입력.
 		try {
 			bw.write("작성자을 입력하세요");
 			bw.flush();
@@ -62,6 +60,5 @@ public class BoardWrite {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return writer;
 	}
 }
