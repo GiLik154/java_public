@@ -11,11 +11,9 @@ import board.poster.poster_utility.PostScaner;
 import board.util.utility.StrPrinter;
 import board.util.utility.WriterComparer;
 import site.util.utility.Constants;
+import site.util.utility.ConstantsBoard;
 
 public class PosterDeleter {
-
-	private static int EXIT = 0;
-	private static int MISS_POST = -1;
 
 	BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
@@ -31,18 +29,16 @@ public class PosterDeleter {
 		while (true) {
 			try {
 
-				bw.write("글을 삭제합니다.");
+				bw.write("글을 삭제합니다." + "\n");
 				bw.flush();
 
 				int postNumber = postScaner.scan(st);
 
-				if (postNumber == EXIT) {
+				if (postNumber == Constants.EXIT) {
 					strPrinter.exit();
 					return;
-				} else if (postNumber == MISS_POST) {
-					strPrinter.missPost();
 				} else {
-					compareId(id, postNumber);
+					compareId(postNumber, id);
 				}
 
 			} catch (IOException e) {
@@ -51,10 +47,11 @@ public class PosterDeleter {
 		}
 	}
 
-	private void compareId(String id, int postNumber) throws IOException {
-		if (writerComparer.run(st, "post", id, postNumber)) {
+	private void compareId(int postNumber, String id) throws IOException {
+		if (writerComparer.run(st, "post", postNumber, id)) {
 			try {
-				st.executeUpdate("delete from " + Constants.BOARD_TABLE_NAME + " where b_num =" + postNumber + ";");
+				st.executeUpdate("delete from " + Constants.BOARD_TABLE_NAME + " where " + ConstantsBoard.B_NUM + " ="
+						+ postNumber + ";");
 				bw.write("삭제가 완료되었습니다." + "\n");
 				bw.flush();
 			} catch (SQLException e) {

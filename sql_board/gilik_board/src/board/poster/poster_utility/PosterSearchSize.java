@@ -5,6 +5,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import site.util.utility.Constants;
+import site.util.utility.ConstantsBoard;
 
 public class PosterSearchSize {
 	Statement st = null;
@@ -14,7 +15,7 @@ public class PosterSearchSize {
 		int boardSize = 0;
 		String searchStr = search;
 		try {
-			result = st.executeQuery("select count(case when b_contents like '%" + searchStr
+			result = st.executeQuery("select count(case when " + ConstantsBoard.B_CONTENTS + " like '%" + searchStr
 					+ "%' then 1 end) as 'serch' from " + Constants.BOARD_TABLE_NAME + ";");
 			result.next();
 			boardSize = result.getInt("serch");

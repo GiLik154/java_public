@@ -16,11 +16,9 @@ import board.util.utility.WriterComparer;
 import board.util.write.BoardContents;
 import board.util.write.BoardTitle;
 import site.util.utility.Constants;
+import site.util.utility.ConstantsBoard;
 
 public class PosterReviser {
-
-	private static int EXIT = 0;
-	private static int MISS_POST = -1;
 
 	BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -48,19 +46,17 @@ public class PosterReviser {
 
 			int postNumber = postScaner.scan(st);
 
-			if (postNumber == EXIT) {
+			if (postNumber == Constants.EXIT) {
 				strPrinter.exit();
 				return;
-			} else if (postNumber == MISS_POST) {
-				strPrinter.missPost();
 			} else {
-				compareId(id, postNumber);
+				compareId(postNumber, id);
 			}
 		}
 	}
 
-	void compareId(String id, int postNumber) {
-		if (writerComparer.run(st, "post", id, postNumber)) {
+	void compareId(int postNumber, String id) {
+		if (writerComparer.run(st, "post", postNumber, id)) {
 			int reviseOption = scanOption();
 			splitOption(reviseOption, postNumber);
 		} else {
@@ -79,8 +75,8 @@ public class PosterReviser {
 
 				reviseOption = Integer.parseInt(br.readLine());
 
-				if (reviseOption == EXIT) {
-					return EXIT;
+				if (reviseOption == Constants.EXIT) {
+					return Constants.EXIT;
 				} else {
 					return reviseOption;
 				}
@@ -117,11 +113,11 @@ public class PosterReviser {
 
 	private void reviseTitle(int postNumber) {
 		try {
-			bw.write("제목을 수정합니다.");
+			bw.write("제목을 수정합니다." + "\n");
 			bw.flush();
 			String newTitle = boardTitle.scanTitle();
-			st.executeUpdate("update  " + Constants.BOARD_TABLE_NAME + " set b_title ='" + newTitle + "'where b_num='"
-					+ postNumber + "';");
+			st.executeUpdate("update  " + Constants.BOARD_TABLE_NAME + " set " + ConstantsBoard.B_TITLE + " ='"
+					+ newTitle + "'where " + ConstantsBoard.B_NUM + "='" + postNumber + "';");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
@@ -131,11 +127,11 @@ public class PosterReviser {
 
 	private void reviseContents(int postNumber) {
 		try {
-			bw.write("내용을 수정합니다.");
+			bw.write("내용을 수정합니다." + "\n");
 			bw.flush();
 			String newContents = boardContents.scanContents();
-			st.executeUpdate("update  " + Constants.BOARD_TABLE_NAME + " set b_contents ='" + newContents
-					+ "'where b_num='" + postNumber + "';");
+			st.executeUpdate("update  " + Constants.BOARD_TABLE_NAME + " set " + ConstantsBoard.B_CONTENTS + " ='"
+					+ newContents + "'where " + ConstantsBoard.B_NUM + "='" + postNumber + "';");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} catch (IOException e) {

@@ -11,6 +11,7 @@ import java.sql.Statement;
 
 import board.util.utility.StrPrinter;
 import site.util.utility.Constants;
+import site.util.utility.ConstantsBoard;
 
 public class PostScaner {
 
@@ -23,7 +24,7 @@ public class PostScaner {
 	ResultSet result = null;
 
 	public int scan(Statement st) {
-		int lastPostNumber = lastPost.retrunLastPost(st);
+
 		while (true) {
 			strPrinter.inputPost();
 			try {
@@ -31,26 +32,25 @@ public class PostScaner {
 
 				if (postNumber == Constants.EXIT) {
 					return Constants.EXIT;
-				} else if (postNumber > lastPostNumber) {
-					strPrinter.missPost();
-					return Constants.MISS_POST;
 				}
 
-				result = st.executeQuery("select * from " + Constants.BOARD_TABLE_NAME + " where b_num =" + postNumber);
+				result = st.executeQuery("select * from " + Constants.BOARD_TABLE_NAME + " where "
+						+ ConstantsBoard.B_NUM + " =" + postNumber);
 
 				if (result.next()) {
 					return postNumber;
 				} else {
-					break;
+					strPrinter.missPost();
+					strPrinter.checkInput();
 				}
 
 			} catch (SQLException e) {
-				strPrinter.missPost();
 			} catch (IOException e) {
 				strPrinter.checkInput();
+			} catch (NumberFormatException e) {
+				strPrinter.notInt();
 			}
 		}
-		return Constants.MISS_POST;
 	}
 
 }

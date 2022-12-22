@@ -7,5 +7,4 @@ public class Constants {
 	public static final String MEMBER_TABLE_NAME = "member";
 	public static final String REPLY_TABLE_NAME = "reply";
 	public static final int MISS_POST = -1;
-
 }

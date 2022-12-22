@@ -5,29 +5,31 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import site.util.utility.Constants;
+import site.util.utility.ConstantsBoard;
+import site.util.utility.ConstantsReply;
 
 public class WriterComparer {
 	Statement st = null;
 	ResultSet result = null;
 
-	public boolean run(Statement st, String type, String id, int postNumber) {
+	public boolean run(Statement st, String type, int postNumber, String id) {
 		this.st = st;
 		switch (type) {
 		case "post":
-			return comparePost(id, postNumber);
+			return comparePost(postNumber, id);
 
 		case "reply":
-			return compareReply(id, postNumber);
+			return compareReply(postNumber, id);
 		}
 		return false;
 	}
 
-	private boolean comparePost(String id, int postNumber) {
+	private boolean comparePost(int postNumber, String id) {
 		try {
-			result = st
-					.executeQuery("select * from " + Constants.BOARD_TABLE_NAME + " where b_num =" + postNumber + ";");
+			result = st.executeQuery("select * from " + Constants.BOARD_TABLE_NAME + " where " + ConstantsBoard.B_NUM
+					+ " =" + postNumber + ";");
 			if (result.next()) {
-				if (id.equals(result.getString("b_writer"))) {
+				if (id.equals(result.getString(ConstantsBoard.B_WRITER))) {
 					return true;
 				}
 			}
@@ -37,12 +39,12 @@ public class WriterComparer {
 		return false;
 	}
 
-	private boolean compareReply(String id, int replyNumber) {
+	private boolean compareReply(int replyNumber, String id) {
 		try {
-			result = st.executeQuery(
-					"select * from " + Constants.REPLY_TABLE_NAME + " where b_reply_num =" + replyNumber + ";");
+			result = st.executeQuery("select * from " + Constants.REPLY_TABLE_NAME + " where "
+					+ ConstantsReply.B_REPLY_NUM + " =" + replyNumber + ";");
 			if (result.next()) {
-				if (id.equals(result.getString("b_reply_writer"))) {
+				if (id.equals(result.getString(ConstantsReply.B_REPLY_WRITER))) {
 					return true;
 				}
 			}

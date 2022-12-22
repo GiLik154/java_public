@@ -16,7 +16,7 @@ public class BoardContents {
 			bw.write("내용을 입력해 주세요" + "\n");
 			bw.flush();
 			contents = br.readLine();
-			bw.write(contents + " 내용이 입력되었습니다.");
+			bw.write(contents + " 내용이 입력되었습니다."+ "\n");
 			bw.flush();
 		} catch (IOException e) {
 			e.printStackTrace();

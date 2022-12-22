@@ -11,6 +11,7 @@ import java.sql.Statement;
 
 import board.util.utility.StrPrinter;
 import site.util.utility.Constants;
+import site.util.utility.ConstantsReply;
 
 public class ReplyScaner {
 
@@ -23,7 +24,6 @@ public class ReplyScaner {
 	ResultSet result = null;
 
 	public int scan(Statement st) {
-		int lastReplyNumber = lastReply.retrunLastReply(st);
 
 		while (true) {
 
@@ -34,26 +34,24 @@ public class ReplyScaner {
 
 				if (replyNumber == Constants.EXIT) {
 					return Constants.EXIT;
-				} else if (replyNumber > lastReplyNumber) {
-					strPrinter.missPost();
-					return Constants.MISS_POST;
 				}
 
-				result = st.executeQuery("select * from reply where b_reply_num =" + replyNumber);
+				result = st.executeQuery("select * from " + Constants.REPLY_TABLE_NAME + " where "
+						+ ConstantsReply.B_REPLY_NUM + " =" + replyNumber);
 
 				if (result.next()) {
 					return replyNumber;
 				} else {
-					break;
+					strPrinter.missPost();
+					strPrinter.checkInput();
 				}
 
 			} catch (SQLException e) {
-				strPrinter.missPost();
 			} catch (IOException e) {
-				strPrinter.checkInput();
+			} catch (NumberFormatException e) {
+				strPrinter.notInt();
 			}
 		}
-		return Constants.MISS_POST;
 	}
 
 }

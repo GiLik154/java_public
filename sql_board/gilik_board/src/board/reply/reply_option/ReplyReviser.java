@@ -15,19 +15,15 @@ import board.util.utility.StrPrinter;
 import board.util.utility.WriterComparer;
 import board.util.write.BoardContents;
 import board.util.write.BoardTitle;
-import board.util.write.BoardWriter;
 import site.util.utility.Constants;
+import site.util.utility.ConstantsReply;
 
 public class ReplyReviser {
-
-	private static int EXIT = 0;
-	private static int MISS_POST = -1;
 
 	BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	StrPrinter strPrinter = new StrPrinter();
 	BoardTitle boardTitle = new BoardTitle();
-	BoardWriter boardWriter = new BoardWriter();
 	BoardContents boardContents = new BoardContents();
 	LastPost lastPost = new LastPost();
 	ReplyScaner replyScaner = new ReplyScaner();
@@ -49,19 +45,19 @@ public class ReplyReviser {
 
 			int replyNumber = replyScaner.scan(st);
 
-			if (replyNumber == EXIT) {
+			if (replyNumber == Constants.EXIT) {
 				strPrinter.exit();
 				return;
-			} else if (replyNumber == MISS_POST) {
+			} else if (replyNumber == Constants.MISS_POST) {
 				strPrinter.missPost();
 			} else {
-				compareId(id, replyNumber);
+				compareId(replyNumber, id);
 			}
 		}
 	}
 
-	private void compareId(String id, int replyNumber) {
-		if (writerComparer.run(st, "reply", id, replyNumber)) {
+	private void compareId(int replyNumber, String id) {
+		if (writerComparer.run(st, "reply", replyNumber, id)) {
 			int reviseOption = scanOption();
 			splitOption(reviseOption, replyNumber);
 		} else {
@@ -80,8 +76,8 @@ public class ReplyReviser {
 
 				menu = Integer.parseInt(br.readLine());
 
-				if (menu == EXIT) {
-					return EXIT;
+				if (menu == Constants.EXIT) {
+					return Constants.EXIT;
 				} else {
 					return menu;
 				}
@@ -115,11 +111,11 @@ public class ReplyReviser {
 
 	private void reviseContents(int postNumber) {
 		try {
-			bw.write("내용을 수정합니다.");
+			bw.write("내용을 수정합니다." + "\n");
 			bw.flush();
 			String newContents = boardContents.scanContents();
-			st.executeUpdate("update " + Constants.REPLY_TABLE_NAME + " set b_reply_contents ='" + newContents
-					+ "'where b_reply_num='" + postNumber + "';");
+			st.executeUpdate("update " + Constants.REPLY_TABLE_NAME + " set " + ConstantsReply.B_REPLY_CONTENTS + " ='"
+					+ newContents + "'where " + ConstantsReply.B_REPLY_NUM + "='" + postNumber + "';");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} catch (IOException e) {

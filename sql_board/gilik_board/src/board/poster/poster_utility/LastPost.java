@@ -5,6 +5,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import site.util.utility.Constants;
+import site.util.utility.ConstantsBoard;
 
 public class LastPost {
 	Statement st = null;
@@ -14,10 +15,11 @@ public class LastPost {
 		this.st = st;
 		int lastPageNumber = 0;
 		try {
-			result = st.executeQuery("SELECT * FROM " + Constants.BOARD_TABLE_NAME + " ORDER BY b_num DESC LIMIT 1;");
+			result = st.executeQuery("SELECT * FROM " + Constants.BOARD_TABLE_NAME + " ORDER BY " + ConstantsBoard.B_NUM
+					+ " DESC LIMIT 1;");
 
 			while (result.next()) {
-				lastPageNumber = Integer.parseInt(result.getString("b_num"));
+				lastPageNumber = Integer.parseInt(result.getString("" + ConstantsBoard.B_NUM + ""));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

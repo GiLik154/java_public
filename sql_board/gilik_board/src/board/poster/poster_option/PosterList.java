@@ -12,6 +12,7 @@ import java.sql.Statement;
 import board.poster.poster_utility.PosterSize;
 import board.util.utility.StrPrinter;
 import site.util.utility.Constants;
+import site.util.utility.ConstantsBoard;
 
 public class PosterList {
 
@@ -52,8 +53,12 @@ public class PosterList {
 			bw.write("몇 번째 목록을 보시겠습니까? \\ 0번 == 종료하기" + "\n");
 			bw.write("최대 페이지 : " + maxListSize + "\n");
 			bw.flush();
-			nowPage = Integer.parseInt(br.readLine());
-
+			try {
+				nowPage = Integer.parseInt(br.readLine());
+			} catch (NumberFormatException e) {
+				bw.write("숫자로 다시 입력해주세요." + "\n");
+				bw.flush();
+			}
 			if (nowPage > maxListSize) {
 				strPrinter.checkInput();
 
@@ -71,12 +76,12 @@ public class PosterList {
 			result = st.executeQuery("select * from board limit " + listSize + "," + Constants.PAGE_PER_BLOCK);
 			bw.write("\n");
 			while (result.next()) {
-				String num = result.getString("b_num");
-				String title = result.getString("b_title");
-				String writer = result.getString("b_writer");
-				String time = result.getString("b_time");
-				String hits = result.getString("b_hits");
-				String contents = result.getString("b_contents");
+				String num = result.getString(ConstantsBoard.B_NUM);
+				String title = result.getString(ConstantsBoard.B_TITLE);
+				String writer = result.getString(ConstantsBoard.B_WRITER);
+				String time = result.getString(ConstantsBoard.B_TIME);
+				String hits = result.getString(ConstantsBoard.B_HITS);
+				String contents = result.getString(ConstantsBoard.B_CONTENTS);
 				bw.write(num + "\\" + title + "\\" + writer + "\\" + time + "\\" + hits + "\\" + contents + "\n");
 			}
 		} catch (SQLException e) {

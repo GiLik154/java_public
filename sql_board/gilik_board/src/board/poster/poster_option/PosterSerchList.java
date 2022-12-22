@@ -12,11 +12,9 @@ import java.sql.Statement;
 import board.poster.poster_utility.PosterSearchSize;
 import board.util.utility.StrPrinter;
 import site.util.utility.Constants;
+import site.util.utility.ConstantsBoard;
 
 public class PosterSerchList {
-
-	private static final int PAGE_PER_BLOCK = 3;
-	private static int EXIT = 0;
 
 	PosterSearchSize posterSearchSize = new PosterSearchSize();
 	StrPrinter strPrinter = new StrPrinter();
@@ -36,16 +34,16 @@ public class PosterSerchList {
 			while (true) {
 
 				int maxPostSize = posterSearchSize.printSize(st, serach);
-				int maxListSize = (int) (Math.ceil((double) maxPostSize / PAGE_PER_BLOCK));
+				int maxListSize = (int) (Math.ceil((double) maxPostSize / Constants.PAGE_PER_BLOCK));
 
 				int nowPage = scanPage(maxListSize);
 
-				if (nowPage == EXIT) {
+				if (nowPage == Constants.EXIT) {
 					strPrinter.exit();
 					return;
 
 				} else {
-					int listSize = (nowPage - 1) * PAGE_PER_BLOCK;
+					int listSize = (nowPage - 1) * Constants.PAGE_PER_BLOCK;
 
 					serchPrint(listSize, serach);
 					bw.write("현재 페이지 : " + nowPage + "/" + maxListSize + "\n" + "\n");
@@ -76,22 +74,25 @@ public class PosterSerchList {
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
+		} catch (NumberFormatException e) {
+			strPrinter.notInt();
 		}
 		return nowPage;
 	}
 
 	private void serchPrint(int listSize, String serch) {
 		try {
-			result = st.executeQuery("select * from " + Constants.BOARD_TABLE_NAME + " where b_contents like " + "'%" + serch + "%'" + " limit "
-					+ listSize + "," + PAGE_PER_BLOCK + ";");
+			result = st.executeQuery(
+					"select * from " + Constants.BOARD_TABLE_NAME + " where " + ConstantsBoard.B_CONTENTS + " like "
+							+ "'%" + serch + "%'" + " limit " + listSize + "," + Constants.PAGE_PER_BLOCK + ";");
 			bw.write("\n");
 			while (result.next()) {
-				String num = result.getString("b_num");
-				String title = result.getString("b_title");
-				String contents = result.getString("b_contents");
-				String writer = result.getString("b_writer");
-				String time = result.getString("b_time");
-				String hits = result.getString("b_hits");
+				String num = result.getString(ConstantsBoard.B_NUM);
+				String title = result.getString(ConstantsBoard.B_TITLE);
+				String contents = result.getString(ConstantsBoard.B_CONTENTS);
+				String writer = result.getString(ConstantsBoard.B_WRITER);
+				String time = result.getString(ConstantsBoard.B_TIME);
+				String hits = result.getString(ConstantsBoard.B_HITS);
 				bw.write(num + "\\" + title + "\\" + writer + "\\" + time + "\\" + hits + "\\" + contents + "\n");
 			}
 			bw.flush();

@@ -10,10 +10,9 @@ import board.poster.poster_utility.PostScaner;
 import board.util.utility.StrPrinter;
 import board.util.write.BoardContents;
 import site.util.utility.Constants;
+import site.util.utility.ConstantsReply;
 
 public class ReplyWriter {
-	private static int EXIT = 0;
-	private static int MISS_POST = -1;
 
 	BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
@@ -23,48 +22,39 @@ public class ReplyWriter {
 
 	Statement st = null;
 
-	public void run(Statement st, String id) {
+	public void run(Statement st, String id) throws IOException {
 		this.st = st;
 		int originPost = originPost();
 
-		if (originPost == EXIT) {
+		if (originPost == Constants.EXIT) {
 			strPrinter.exit();
 			return;
 		}
-		write(originPost, id);
+		write(originPost, st, id);
 	}
 
-	private int originPost() {
+	private int originPost() throws IOException {
 		int originPost = 0;
-		try {
-			bw.write("댓글을 작성합니다.");
-			bw.flush();
+		bw.write("댓글을 작성합니다." + "\n");
+		bw.flush();
 
-			while (true) {
-
-				originPost = postScaner.scan(st);
-
-				if (originPost == MISS_POST) {
-					strPrinter.missPost();
-				}
-				break;
-			}
-
-		} catch (IOException e) {
-			e.printStackTrace();
+		while (true) {
+			originPost = postScaner.scan(st);
+			break;
 		}
 		return originPost;
 	}
 
-	private void write(int originPost, String id) {
+	public void write(int originPost, Statement st, String id) {
 
 		String contents = boardContents.scanContents();
 		String writer = id;
 
 		try {
-			st.executeUpdate("insert into " + Constants.REPLY_TABLE_NAME
-					+ "(b_reply_contents, b_reply_writer, b_reply_origin, b_reply_time) values ('" + contents + "',"
-					+ "'" + writer + "'," + originPost + "" + ",now()" + ")");
+			st.executeUpdate("insert into " + Constants.REPLY_TABLE_NAME + "(" + ConstantsReply.B_REPLY_CONTENTS + ", "
+					+ ConstantsReply.B_REPLY_WRITER + ", " + ConstantsReply.B_REPLY_ORIGIN + ", "
+					+ ConstantsReply.B_REPLY_TIME + ") values ('" + contents + "'," + "'" + writer + "'," + originPost
+					+ "" + ",now()" + ")");
 			strPrinter.resultInput();
 		} catch (SQLException e) {
 			e.printStackTrace();

@@ -29,31 +29,30 @@ public class Reply {
 			bw.write("1.댓글 메뉴입니다." + "\n");
 			bw.write("1.댓글 리스트 \\ 2. 댓글 보기 \\ 3. 댓글 쓰기 \\ 4. 댓글 삭제 \\ 5. 댓글 수정 \\ e. 프로그램 종료" + "\n");
 			bw.flush();
-			String num = br.readLine();
 
-			switch (num) {
+			switch (br.readLine()) {
 			case "1":
-				replyList.run(st);
+				replyList.run(st); // 댓글 리스트
 				break;
 
 			case "2":
-				replyReader.run(st);
+				replyReader.run(st); // 댓글 보기
 				break;
 
 			case "3":
-				replyWriter.run(st, id);
+				replyWriter.run(st, id); // 댓글 쓰기
 				break;
 
 			case "4":
-				replyDeleter.delet(st, id);
+				replyDeleter.delet(st, id); //댓글 삭제
 				break;
 
 			case "5":
-				replyReviser.run(st, id);
+				replyReviser.run(st, id); // 댓글 수정
 				break;
 
 			case "e":
-				strPrinter.exit();
+				strPrinter.exit(); //프로그램 종료
 				return;
 
 			default:

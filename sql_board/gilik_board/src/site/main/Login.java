@@ -9,6 +9,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import site.util.utility.Constants;
+import site.util.utility.ConstantsMember;
+
 public class Login {
 	Statement st = null;
 	ResultSet result = null;
@@ -67,7 +70,8 @@ public class Login {
 	private String getPassword(String id) {
 		String password = null;
 		try {
-			result = st.executeQuery("select * from member where id = " + id + ";");
+			result = st.executeQuery(
+					"select * from " + Constants.MEMBER_TABLE_NAME + " where " + ConstantsMember.ID + " = " + id + ";");
 
 			if (result.next()) {
 				password = result.getString("password");

@@ -12,10 +12,9 @@ import java.sql.Statement;
 import board.reply.reply_utility.ReplyScaner;
 import board.util.utility.StrPrinter;
 import site.util.utility.Constants;
+import site.util.utility.ConstantsReply;
 
 public class ReplyReader {
-	private static int EXIT = 0;
-	private static int MISS_POST = -1;
 
 	BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -33,10 +32,10 @@ public class ReplyReader {
 
 			int replyNumber = replyScaner.scan(st);
 
-			if (replyNumber == EXIT) {
+			if (replyNumber == Constants.EXIT) {
 				strPrinter.exit();
 				return;
-			} else if (replyNumber == MISS_POST) {
+			} else if (replyNumber == Constants.MISS_POST) {
 				strPrinter.missPost();
 			} else {
 				search(replyNumber);
@@ -46,12 +45,14 @@ public class ReplyReader {
 
 	private void search(int replyNumber) {
 		try {
-			result = st
-					.executeQuery("select * from " + Constants.REPLY_TABLE_NAME + " where b_reply_num =" + replyNumber);
+			result = st.executeQuery("select * from " + Constants.REPLY_TABLE_NAME + " where "
+					+ ConstantsReply.B_REPLY_NUM + " =" + replyNumber);
 
 			result.next(); // 결과를 하나씩 빼기. 더 이상 없으면(행 수가 끝나면) false 리턴됨.
-			String content = result.getString("b_reply_contents"); // p_name 필드(열) 의 데이터 꺼내기(1개 꺼낸거에서)
-			String writer = result.getString("b_reply_writer"); // p_name 필드(열) 의 데이터 꺼내기(1개 꺼낸거에서)
+			String content = result.getString("" + ConstantsReply.B_REPLY_CONTENTS + ""); // p_name 필드(열) 의 데이터 꺼내기(1개
+																							// 꺼낸거에서)
+			String writer = result.getString("" + ConstantsReply.B_REPLY_WRITER + ""); // p_name 필드(열) 의 데이터 꺼내기(1개
+																						// 꺼낸거에서)
 			printPost(content, writer);
 
 		} catch (SQLException e) {

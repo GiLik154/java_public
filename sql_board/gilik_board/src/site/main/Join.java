@@ -8,6 +8,8 @@ import java.io.OutputStreamWriter;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import site.util.utility.Constants;
+import site.util.utility.ConstantsMember;
 import site.util.utility.StrPrinter;
 
 public class Join {
@@ -40,9 +42,10 @@ public class Join {
 		String sex = sex();
 		String phone = phone();
 		String hobby = hobby();
-
-		String makingboard = ("insert into member(id, password,  name, age, sex, phone, hobby) values ('" + id + "',"
-				+ "'" + password + "','" + name + "'" + ",'" + age + "','" + sex + "','" + phone + "','" + hobby
+		String makingboard = ("insert into " + Constants.MEMBER_TABLE_NAME + "(" + ConstantsMember.ID + ","
+				+ ConstantsMember.PASSWORD + "," + ConstantsMember.NAME + "," + ConstantsMember.AGE + ","
+				+ ConstantsMember.SEX + "," + ConstantsMember.PHONE + "," + ConstantsMember.HOBBY + ") values ('" + id
+				+ "'," + "'" + password + "','" + name + "'" + ",'" + age + "','" + sex + "','" + phone + "','" + hobby
 				+ "');");
 		System.out.println(makingboard);
 

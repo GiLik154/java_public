@@ -16,7 +16,8 @@ public class BoardTitle {
 			bw.write("제목을 입력해 주세요" + "\n");
 			bw.flush();
 			title = br.readLine();
-			bw.write(title + " 제목이 입력되었습니다.");
+			bw.write(title + " 제목이 입력되었습니다."+ "\n");
+			bw.flush();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

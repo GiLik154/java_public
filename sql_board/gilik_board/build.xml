@@ -8,16 +8,16 @@
     <property name="debuglevel" value="source,lines,vars"/>
     <property name="target" value="11"/>
     <property name="source" value="11"/>
-    <path id="mysql_board.classpath">
+    <path "+ConstantsMember.ID    +"="mysql_board.classpath">
         <pathelement location="bin"/>
         <pathelement location="D:/mysql-connector-j-8.0.31/mysql-connector-j-8.0.31.jar"/>
     </path>
-    <path id="run.BoardMain (13).classpath">
-        <path refid="mysql_board.classpath"/>
+    <path "+ConstantsMember.ID    +"="run.BoardMain (13).classpath">
+        <path ref"+ConstantsMember.ID    +"="mysql_board.classpath"/>
         <pathelement location="D:/mysql-connector-j-8.0.31/mysql-connector-j-8.0.31.jar"/>
     </path>
-    <path id="run.SiteMain.classpath">
-        <path refid="mysql_board.classpath"/>
+    <path "+ConstantsMember.ID    +"="run.SiteMain.classpath">
+        <path ref"+ConstantsMember.ID    +"="mysql_board.classpath"/>
         <pathelement location="D:/mysql-connector-j-8.0.31/mysql-connector-j-8.0.31.jar"/>
     </path>
     <target name="init">
@@ -39,7 +39,7 @@
         <echo message="${ant.project.name}: ${ant.file}"/>
         <javac debug="true" debuglevel="${debuglevel}" destdir="bin" includeantruntime="false" source="${source}" target="${target}">
             <src path="src"/>
-            <classpath refid="mysql_board.classpath"/>
+            <classpath ref"+ConstantsMember.ID    +"="mysql_board.classpath"/>
         </javac>
     </target>
     <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects"/>
@@ -58,12 +58,12 @@
     </target>
     <target name="BoardMain (13)">
         <java classname="BoardMain" failonerror="true" fork="yes">
-            <classpath refid="run.BoardMain (13).classpath"/>
+            <classpath ref"+ConstantsMember.ID    +"="run.BoardMain (13).classpath"/>
         </java>
     </target>
     <target name="SiteMain">
         <java classname="site.main.SiteMain" failonerror="true" fork="yes">
-            <classpath refid="run.SiteMain.classpath"/>
+            <classpath ref"+ConstantsMember.ID    +"="run.SiteMain.classpath"/>
         </java>
     </target>
 </project>

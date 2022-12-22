@@ -63,4 +63,13 @@ public class StrPrinter {
 		}
 	}
 	
+	public void notInt() {
+		try {
+			bw.write("숫자로 다시 입력해주세요 \n");
+			bw.flush();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
 }

@@ -5,6 +5,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import site.util.utility.Constants;
+import site.util.utility.ConstantsReply;
 
 public class PosterReplyNumber {
 	private ResultSet result = null;
@@ -12,8 +13,8 @@ public class PosterReplyNumber {
 	int scan(Statement st, int postNumber) {
 		int replyEach = 0;
 		try {
-			result = st.executeQuery(
-					"select * from " + Constants.REPLY_TABLE_NAME + " where b_reply_origin =" + postNumber);
+			result = st.executeQuery("select * from " + Constants.REPLY_TABLE_NAME + " where "
+					+ ConstantsReply.B_REPLY_ORIGIN + " =" + postNumber);
 			while (result.next()) {
 				replyEach++;
 			}
